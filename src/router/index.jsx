@@ -1,25 +1,33 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../pages/Home";
-import LiveSevice from "../pages/LiveSevice";
-import Shop from "../pages/Shop";
-import User from "../pages/User";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import Home from "../pages/Main/Home";
+import LiveSevice from "../pages/Main/LiveSevice";
+import Shop from "../pages/Main/Shop";
+import User from "../pages/Main/User";
 import BottomNav from "../components/BottomNav";
+import City from "../pages/City";
+import Layout from "../pages/Main/Layout";
 
 const AppRouter = () => {
   return (
-    <Router>
-      {/* react v18 Switch被淘汰，更新为Routes */}
-      <BottomNav />
+    <HashRouter>
       <Switch>
-        {/* react v18 component 更新为element */}
-        {/* react v18 {Home} 写法更新为{<Home/>} */}
-        <Route exact  path="/" component={Home} />
-        <Route path="/live" component={LiveSevice} />
-        <Route path="/shop" component={Shop} />
-        <Route path="/user" component={User} />
+        <Route path="/city" component={City} />
+        {/* react v18 Switch被淘汰，更新为Routes */}
+        <Layout>
+          {/* 设置二级路由，共享BottomNav组件 */}
+          <BottomNav />
+          <Switch>
+            {/* react v18 component 更新为element */}
+            {/* react v18 {Home} 写法更新为{<Home/>} */}
+            <Route exact path="/" component={Home} />
+            <Route path="/live" component={LiveSevice} />
+            <Route path="/shop" component={Shop} />
+            <Route path="/user" component={User} />
+          </Switch>
+        </Layout>
       </Switch>
-    </Router>
+    </HashRouter>
   );
 };
 

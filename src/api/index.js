@@ -3,6 +3,7 @@ const base = {
     baseUrl: "http://localhost:5566",
     homehot1: "/api/home/hot1",
     homehot2: "/api/home/hot2",
+    hotCityList:"/api/city/hotcitylist"
 }
 const api = {
     // 获取首页热门产品1
@@ -13,6 +14,11 @@ const api = {
     },
     getHomeHot2(params) {
         return axios.get(base.baseUrl + base.homehot2, {
+            params
+        })
+    },
+    getHotCityList(params) {
+        return axios.get(base.baseUrl + base.hotCityList, {
             params
         })
     }
