@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.less";
 
-const HeadNav = () => {
+const HeadNav = (props) => {
   return (
     <div id="home-header" className="clear-fix">
       <div className="home-header-left">
         <Link to='/city'>
-          <span>北京</span>
+          <span>{props.cityName}</span>
         </Link>
 
         <i className="icon-angle-down"></i>

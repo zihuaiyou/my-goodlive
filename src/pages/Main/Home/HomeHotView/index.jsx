@@ -4,7 +4,7 @@ import "./style.less";
 const HomeHotView = (props) => {
   return (
     <div className="hotproduct">
-          <h3>{props.title}</h3>
+      <h3>{props.title}</h3>
       <div className="hot-container">
         <ul>
           {props.data.map((elem, index) => {
@@ -12,7 +12,7 @@ const HomeHotView = (props) => {
               <li key={elem.id}>
                 <a href={elem.link}>
                   <img src={elem.img} alt="图片..." />
-                  <span>{elem.title}</span>
+                  <span>{props.cityName + elem.title}</span>
                 </a>
               </li>
             );
