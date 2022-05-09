@@ -26,7 +26,6 @@ const CityList = (props) => {
             <li key={nanoid()}>
               <span onClick={() =>{ 
                   props.onEvent(elem);
-                  props.history.push('/')
                   }}>{elem}</span>
             </li>
           );

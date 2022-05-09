@@ -7,6 +7,7 @@ import User from "../pages/Main/User";
 import BottomNav from "../components/BottomNav";
 import City from "../pages/City";
 import Layout from "../pages/Main/Layout";
+import Search from "../pages/Search";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,8 @@ const AppRouter = () => {
       <Switch>
         <Route path="/city" component={City} />
         {/* react v18 Switch被淘汰，更新为Routes */}
+        {/* 向路由传参应提前注册参数 */}
+        <Route path="/search/:keywords" component={Search} />
         <Layout>
           {/* 设置二级路由，共享BottomNav组件 */}
           <BottomNav />

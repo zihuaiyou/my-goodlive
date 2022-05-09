@@ -4,8 +4,9 @@ import CurrentCity from "./CurrentCity";
 import CityList from "./CityList";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCityAction } from "../../redux/actions";
+import CityLists from "./CityLists";
 
-const City = () => {
+const City = (props) => {
   // const [currentCityName, setCurrentCityName] = useState("北京");
 
   //useDispatch: 映射操作状态的方法(设置redux中的state)
@@ -14,6 +15,7 @@ const City = () => {
   const handleChangeCity = (city) => {
     // setCurrentCityName(city);
     dispatch(changeCityAction(city));
+    props.history.push("/");
   };
   const city = useSelector((state) => state.city);
   return (
@@ -21,6 +23,7 @@ const City = () => {
       <PubHeader title="城市选择" />
       <CurrentCity cityName={city.cityName} />
       <CityList onEvent={handleChangeCity} />
+      <CityLists onEvent={handleChangeCity}/>
     </div>
   );
 };
