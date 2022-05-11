@@ -10,7 +10,7 @@ const SearchDataList = (props) => {
     http();
   };
   const http = () => {
-    console.log(props.keywords);
+    // console.log(props.keywords);
     api
       .getSearchData({
         search: props.keywords,
