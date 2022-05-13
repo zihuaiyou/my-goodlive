@@ -8,12 +8,15 @@ import BottomNav from "../components/BottomNav";
 import City from "../pages/City";
 import Layout from "../pages/Main/Layout";
 import Search from "../pages/Search";
+import Details from "../pages/Details";
 
 const AppRouter = () => {
   return (
     <HashRouter>
       <Switch>
         <Route path="/city" component={City} />
+        <Route path="/details/:id" component={Details} />
+        
         {/* react v18 Switch被淘汰，更新为Routes */}
         {/* 向路由传参应提前注册参数 */}
         <Route path="/search/:keywords" component={Search} />

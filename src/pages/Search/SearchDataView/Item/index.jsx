@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.less";
 import DefaultImag from "../../../../assets/images/defaultImag.png";
 import { asyncLoadImag } from "../../../../utils/loadImag";
+import { Link } from "react-router-dom";
 
 const Item = (props) => {
   const [imagUrl, setImagUrl] = useState("");
@@ -16,29 +17,31 @@ const Item = (props) => {
       .catch((error) => console.log(error));
     return () => {
       // 更新标记，表示组件已经卸载
-      isMounted = false; 
+      isMounted = false;
     };
   }, [props.data.img]);
 
   return (
     <div className="list-item">
-      {imagUrl ? (
-        <img src={props.data.img} alt="" />
-      ) : (
-        <img src={DefaultImag} alt="" />
-      )}
-      <div className="mask">
-        <div className="left">
-          <p>{props.data.title}</p>
-          <p>{props.data.houseType}</p>
+      <Link to={"/details/" + props.data.id}>
+        {imagUrl ? (
+          <img src={props.data.img} alt="" />
+        ) : (
+          <img src={DefaultImag} alt="" />
+        )}
+        <div className="mask">
+          <div className="left">
+            <p>{props.data.title}</p>
+            <p>{props.data.houseType}</p>
+          </div>
+          <div className="right">
+            <div className="btn">{props.data.rentType}</div>
+            <p
+              dangerouslySetInnerHTML={{ __html: props.data.price + "元/月" }}
+            ></p>
+          </div>
         </div>
-        <div className="right">
-          <div className="btn">{props.data.rentType}</div>
-          <p
-            dangerouslySetInnerHTML={{ __html: props.data.price + "元/月" }}
-          ></p>
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };
