@@ -6,7 +6,8 @@ const base = {
     hotCityList: "/api/city/hotcitylist",
     cityData: "/api/city/cityData",
     searchData: "/api/search",
-    details:"/api/details"
+    details: "/api/details",
+    login: "/api/login"
 }
 const api = {
     // 获取首页热门产品1
@@ -37,10 +38,14 @@ const api = {
         })
     },
     // 获取搜索详情页数据
-    getDetailData(params){
+    getDetailData(params) {
         return axios.get((base.baseUrl + base.details), {
             params
         })
+    },
+    //提交登录信息
+    postLoginData(params) {
+        return axios.post(base.baseUrl + base.login, params)
     }
 }
 

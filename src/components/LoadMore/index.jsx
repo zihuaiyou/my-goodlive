@@ -8,25 +8,18 @@ const LoadMore = (props) => {
     // 获取视口高度
     const winHeight = document.documentElement.clientHeight;
     let timeId = null;
-    window.addEventListener("scroll", () => {
+    const scrollHandle = () => {
       if (more.current) {
         // 获取指定组件距离视口顶部高度
         setHeight(more.current.getBoundingClientRect().top);
         if (Height < winHeight) {
-          if (timeId) {
-            clearTimeout(timeId);
-          } else {
-            timeId = setTimeout(() => {
-              // console.log("加载更多");
-              props.onLoad();
-            }, 500);
-          }
+          if (timeId) clearTimeout(timeId);
+          else timeId = setTimeout(() => props.onLoad(), 500);
         }
       }
-
-      // console.log(more.current.getBoundingClientRect().top > winHeight);
-    });
-  }, [Height]);
+    };
+    window.addEventListener("scroll", scrollHandle);
+  }, [Height,props]);
   return (
     <div ref={more} className="load-more">
       加载更多

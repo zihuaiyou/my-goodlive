@@ -1,4 +1,7 @@
-import { INIT_CITY, CHANGE_CITY, UPDATE_SEARCH_INPUT } from '../constants';
+import {
+    INIT_CITY, CHANGE_CITY, UPDATE_SEARCH_INPUT,
+    SET_LOGIN, OUT_LOGIN
+} from '../constants';
 
 export const initCityAction = (cityName) => {
     return {
@@ -6,6 +9,7 @@ export const initCityAction = (cityName) => {
         cityName
     }
 }
+
 export const changeCityAction = (cityName) => {
     return {
         type: CHANGE_CITY,
@@ -19,3 +23,20 @@ export const updateSearchAction = (searchTerm) => {
         searchTerm
     }
 }
+
+export const setLoginAction = (user) => {
+    return {
+        type: SET_LOGIN,
+        user:{
+            username:user.username,
+            token:user.token
+        }
+    }
+}
+
+export const outLoginAction = () => {
+    return {
+        type: OUT_LOGIN,
+    }
+}
+

@@ -9,8 +9,7 @@ const SearchDataList = (props) => {
   const handleLoadMore = () => {
     http();
   };
-  const http = () => {
-    // console.log(props.keywords);
+  const http =() => {
     api
       .getSearchData({
         search: props.keywords,
@@ -28,6 +27,7 @@ const SearchDataList = (props) => {
   useEffect(() => {
     http();
     return () => {
+      // 组件卸载后，清除网络请求获得的数据
       setSearchData([]);
       setHasMore(false);
     };

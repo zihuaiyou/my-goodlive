@@ -9,12 +9,14 @@ import City from "../pages/City";
 import Layout from "../pages/Main/Layout";
 import Search from "../pages/Search";
 import Details from "../pages/Details";
+import Login from "../pages/Login";
 
 const AppRouter = () => {
   return (
     <HashRouter>
       <Switch>
         <Route path="/city" component={City} />
+        <Route path="/login" component={Login} />
         <Route path="/details/:id" component={Details} />
         
         {/* react v18 Switch被淘汰，更新为Routes */}

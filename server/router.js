@@ -49,33 +49,50 @@ router.get('/city/cityData', (req, res) => {
 // 搜索页的接口
 router.get('/search', (req, res) => {
     let mockData = Mock.mock({
-        'hasMore':true,
+        'hasMore': true,
         'data|5': [{
             'id': Random.integer(),
-            'title':Random.csentence(3, 8),
-            'houseType':"17/19层| 4室1厅 - 273.97 ㎡",
-            'price':"<h3>130000</h3>",
+            'title': Random.csentence(3, 8),
+            'houseType': "17/19层| 4室1厅 - 273.97 ㎡",
+            'price': "<h3>130000</h3>",
             'rentType': Random.cword(2),
-            'img':Random.image('800x600', Random.color(), Random.color(),Random.cword(2,5))
+            'img': Random.image('800x600', Random.color(), Random.color(), Random.cword(2, 5))
         }]
     })
-    const keywords = url.parse(req.url,true).query.search
+    const keywords = url.parse(req.url, true).query.search
     res.send({
         status: 200,
         result: mockData,
         // search
     })
     console.log(keywords);
-    
-// 搜索详情页
-router.get('/details', (req, res) => {
-    const id = url.parse(req.url,true).query.id;
-    console.log(id);
-    res.send({
-        status: 200,
-        result: detailData
+
+    // 搜索详情页
+    router.get('/details', (req, res) => {
+        const id = url.parse(req.url, true).query.id;
+        console.log(id);
+        res.send({
+            status: 200,
+            result: detailData
+        })
     })
 })
-})
 
+//登录信息的接口
+router.post('/login', (req, res) => {
+    //引入的body-parser中间件生成req.body并解析
+    const { username, password } = req.body;
+    if (username && password) {
+        res.send({
+            status: 200,
+            username,
+            token: "ahsduilha.dhusaildhioa.ailahdan"
+        })
+    } else {
+        res.send({
+            status: 400,
+            msg: "用户名或密码错误"
+        })
+    }
+})
 module.exports = router;
