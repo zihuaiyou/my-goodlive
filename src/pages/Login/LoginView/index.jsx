@@ -13,15 +13,19 @@ const LoginView = (props) => {
     event.preventDefault();
     // 验证输入框信息
     if (validator({ username, password }).isValid) {
+      // 输入信息有效
+      console.log('输入信息有效');
       setError({});
       api.postLoginData({ username, password }).then((res) => {
         if (res.data.status === 200) {
           console.log("登录成功", res.data);
           props.onLoad(res.data);
+          window.history.back();
         } else console.log("登录失败");
       });
       console.log(username, password);
     } else {
+      // 输入信息无效
       console.log(validator({ username, password }).error);
       setError(validator({ username, password }).error);
     }

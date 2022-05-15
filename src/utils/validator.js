@@ -1,5 +1,4 @@
 import validator from "validator";
-import { isEmpty } from "lodash";
 
 const validatorInput = (data) => {
     let error = {};
@@ -10,7 +9,7 @@ const validatorInput = (data) => {
         error.password = '密码不能为空'
     }
     return {
-        isValid: isEmpty(error),
+        isValid: error.username ? false : true,
         error
     }
 }

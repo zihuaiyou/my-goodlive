@@ -7,7 +7,7 @@ const Details = () => {
     return (
         <div>
             <DetailList detailsId = {params.id}/>
-            <BuyAndStore />
+            <BuyAndStore id = {params.id}/>
         </div>
     )
 }

@@ -9,7 +9,6 @@ const DetailList = (props) => {
       api
         .getDetailData({ id: props.detailsId })
         .then((res) => {
-          // console.log(res);
           if (res.status === 200) {
             setDetailsData(res.data.result);
           }

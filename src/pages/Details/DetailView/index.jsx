@@ -5,7 +5,6 @@ import DetailHeader from "../../../components/PubHeader";
 import Swiper from "../../../components/Swiper";
 
 const DetailView = (props) => {
-  // console.log(props.data);
   const detailsData = props.data;
   return (
     <div>
