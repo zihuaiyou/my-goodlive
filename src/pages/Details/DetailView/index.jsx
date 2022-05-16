@@ -4,6 +4,7 @@ import "./style.less";
 import DetailHeader from "../../../components/PubHeader";
 import Swiper from "../../../components/Swiper";
 import Tabs from "../../../components/Tabs";
+import Comment from "../Comment";
 
 const DetailView = (props) => {
   const detailsData = props.data;
@@ -12,7 +13,7 @@ const DetailView = (props) => {
       <DetailHeader title="搜索详情" />
       <Swiper banners={props.data.imgs} />
       <Tabs>
-        <div lable = '详情'>
+        <div lable="详情">
           <div className="detail-info">
             <h3>{detailsData.title}</h3>
             <div className="box">
@@ -47,8 +48,8 @@ const DetailView = (props) => {
           </div>
         </div>
 
-        <div lable = '评价'>
-          我是评价
+        <div lable="评价">
+          <Comment id={props.id}/>
         </div>
       </Tabs>
     </div>

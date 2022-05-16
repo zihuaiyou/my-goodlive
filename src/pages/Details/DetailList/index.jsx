@@ -18,7 +18,7 @@ const DetailList = (props) => {
   );
   return (
     <div>
-      {detailData.imgs ? <DetailView data={detailData} /> : <div>
+      {detailData.imgs ? <DetailView data={detailData}  id={props.detailsId}/> : <div>
         loading</div>}
     </div>
   );

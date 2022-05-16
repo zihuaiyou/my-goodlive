@@ -1,0 +1,31 @@
+module.exports = {
+    hasMore:true,
+    data:[
+        {
+            username:"133****3355",
+            comment:'什么垃圾房子也敢让爷住',
+            star:0
+        },
+        {
+            username:"刘德华",
+            comment:'房子不错，价钱合理，服务也好',
+            star:10
+        },
+        {
+            username:"137****3475",
+            comment:'还凑合吧',
+            star:4
+        },
+        {
+            username:"186****8732",
+            comment:'二十字二十字二十字二十字二十字二十字二十字二十字二十字二十字二十字',
+            star:5
+        },
+        {
+            username:"178****1229",
+            comment:'什么都好，就是太贵了',
+            star:2
+        },
+    ]
+
+}

@@ -7,7 +7,8 @@ const base = {
     cityData: "/api/city/cityData",
     searchData: "/api/search",
     details: "/api/details",
-    login: "/api/login"
+    login: "/api/login",
+    comment: "/api/comment"
 }
 const api = {
     // 获取首页热门产品1
@@ -46,6 +47,12 @@ const api = {
     //提交登录信息
     postLoginData(params) {
         return axios.post(base.baseUrl + base.login, params)
+    },
+    //请求评论信息
+    getCommentData(params) {
+        return axios.get(base.baseUrl + base.comment, {
+            params
+        })
     }
 }
 

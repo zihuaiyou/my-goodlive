@@ -3,12 +3,12 @@ const router = express.Router();
 const homehot = require('./data/home/homehot');
 const hotCityList = require('./data/city/hotCityList')
 const cityData = require('./data/city/city.json')
-// const searchData = require('./data/search')
 const url = require('url');
 //使用mock模拟后端数据
 const Mock = require('mockjs');
 const Random = Mock.Random;
-const detailData = require('./data/details/index')
+const detailData = require('./data/details')
+const commentData = require('./data/comment')
 
 // 首页热门商品的接口
 router.get('/home/hot1', (req, res) => {
@@ -66,17 +66,18 @@ router.get('/search', (req, res) => {
         // search
     })
     console.log(keywords);
+})
 
-    // 搜索详情页
-    router.get('/details', (req, res) => {
-        const id = url.parse(req.url, true).query.id;
-        console.log(id);
-        res.send({
-            status: 200,
-            result: detailData
-        })
+// 搜索详情页
+router.get('/details', (req, res) => {
+    const id = url.parse(req.url, true).query.id;
+    console.log(id);
+    res.send({
+        status: 200,
+        result: detailData
     })
 })
+
 
 //登录信息的接口
 router.post('/login', (req, res) => {
@@ -95,4 +96,15 @@ router.post('/login', (req, res) => {
         })
     }
 })
+
+// 请求评论数据的接口
+router.get('/comment', (req, res) => {
+    const id = url.parse(req.url, true).query.id;
+    console.log(id);
+    res.send({
+        status: 200,
+        result: commentData
+    })
+})
+
 module.exports = router;
