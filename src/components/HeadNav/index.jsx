@@ -7,7 +7,7 @@ const HeadNav = (props) => {
   return (
     <div id="home-header" className="clear-fix">
       <div className="home-header-left">
-        <Link to='/city'>
+        <Link to="/city">
           <span>{props.cityName}</span>
         </Link>
 
@@ -20,7 +20,9 @@ const HeadNav = (props) => {
         </div>
       </div>
       <div className="home-header-right">
-        <i className="iconfont icon-car"></i>
+        <Link to='/order'>
+          <i className="iconfont icon-car"></i>
+        </Link>
       </div>
     </div>
   );

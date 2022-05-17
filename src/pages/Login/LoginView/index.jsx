@@ -23,10 +23,10 @@ const LoginView = (props) => {
           window.history.back();
         } else console.log("登录失败");
       });
-      console.log(username, password);
+      // console.log(username, password);
     } else {
       // 输入信息无效
-      console.log(validator({ username, password }).error);
+      // console.log(validator({ username, password }).error);
       setError(validator({ username, password }).error);
     }
   };

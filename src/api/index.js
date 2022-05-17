@@ -8,7 +8,8 @@ const base = {
     searchData: "/api/search",
     details: "/api/details",
     login: "/api/login",
-    comment: "/api/comment"
+    comment: "/api/comment",
+    orderComment: "/api/order/comment",
 }
 const api = {
     // 获取首页热门产品1
@@ -51,6 +52,12 @@ const api = {
     //请求评论信息
     getCommentData(params) {
         return axios.get(base.baseUrl + base.comment, {
+            params
+        })
+    },
+    //请求订单信息
+    getOrderData(params) {
+        return axios.get(base.baseUrl + base.orderComment, {
             params
         })
     }

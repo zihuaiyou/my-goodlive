@@ -10,6 +10,7 @@ import Layout from "../pages/Main/Layout";
 import Search from "../pages/Search";
 import Details from "../pages/Details";
 import Login from "../pages/Login";
+import Order from "../pages/Order";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/city" component={City} />
         <Route path="/login" component={Login} />
         <Route path="/details/:id" component={Details} />
+        <Route path="/order" component={Order} />
         
         {/* react v18 Switch被淘汰，更新为Routes */}
         {/* 向路由传参应提前注册参数 */}

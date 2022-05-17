@@ -9,6 +9,7 @@ const Mock = require('mockjs');
 const Random = Mock.Random;
 const detailData = require('./data/details')
 const commentData = require('./data/comment')
+const orderData = require('./data/order');
 
 // 首页热门商品的接口
 router.get('/home/hot1', (req, res) => {
@@ -104,6 +105,16 @@ router.get('/comment', (req, res) => {
     res.send({
         status: 200,
         result: commentData
+    })
+})
+
+// 请求订单信息的接口
+router.get('/order/comment', (req, res) => {
+    const username = url.parse(req.url,true).query.username
+    console.log(username);
+    res.send({
+        status: 200,
+        result: orderData
     })
 })
 
