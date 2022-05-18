@@ -18,7 +18,7 @@ const LoginView = (props) => {
       setError({});
       api.postLoginData({ username, password }).then((res) => {
         if (res.data.status === 200) {
-          console.log("登录成功", res.data);
+          // console.log("登录成功", res.data);
           props.onLoad(res.data);
           window.history.back();
         } else console.log("登录失败");

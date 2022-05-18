@@ -10,6 +10,7 @@ const base = {
     login: "/api/login",
     comment: "/api/comment",
     orderComment: "/api/order/comment",
+    submitOrderComment: "/api/order/submit"
 }
 const api = {
     // 获取首页热门产品1
@@ -60,6 +61,11 @@ const api = {
         return axios.get(base.baseUrl + base.orderComment, {
             params
         })
+    },
+    // 
+    postOrderComment(params) {
+        return axios.post(base.baseUrl + base.submitOrderComment, params
+        )
     }
 }
 

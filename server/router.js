@@ -118,4 +118,14 @@ router.get('/order/comment', (req, res) => {
     })
 })
 
+// 提交订单评价信息的接口
+router.post('/order/submit',(req,res) => {
+    const {username,id,comment} = req.body;
+    console.log(username,id,comment);
+    res.send({
+        status: 200,
+        msg: "订单评价成功"
+    })
+})
+
 module.exports = router;
