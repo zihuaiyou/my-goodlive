@@ -6,6 +6,7 @@ import './assets/css/font.css'
 import './assets/css/iconfont.css';
 import { Provider } from 'react-redux';
 import store from './redux/store'
+import '../src/utils/init'
 
 ReactDOM.render(
   <Provider store={store}>
